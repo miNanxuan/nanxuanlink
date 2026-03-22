@@ -89,7 +89,6 @@
     font-weight: 400;
   }
 
-  /* ── SOCIAL ICONS ── */
   .social-row {
     display: flex;
     gap: 0.7rem;
@@ -110,16 +109,9 @@
     transform: translateY(-2px);
     box-shadow: 0 5px 14px rgba(0,0,0,0.15);
   }
-  .social-row a img {
-    width: 22px; height: 22px;
-    object-fit: contain;
-  }
-  /* SVG icon（email）同樣大小 */
-  .social-row a svg {
-    width: 22px; height: 22px;
-  }
+  .social-row a img { width: 22px; height: 22px; object-fit: contain; }
+  .social-row a svg { width: 22px; height: 22px; }
 
-  /* ── SECTION ── */
   .section { width: 100%; margin-bottom: 1.2rem; }
   .section-title {
     font-size: 1.15rem;
@@ -130,7 +122,6 @@
     text-align: center;
   }
 
-  /* ── LINK BUTTONS ── */
   .link-btn {
     display: grid;
     grid-template-columns: 48px 1fr;
@@ -161,30 +152,12 @@
     justify-content: center;
     flex-shrink: 0;
   }
-  .btn-icon-wrap img {
-    width: 28px; height: 28px;
-    object-fit: contain;
-    display: block;
-  }
+  .btn-icon-wrap img { width: 28px; height: 28px; object-fit: contain; display: block; }
+  .btn-icon-wrap svg { width: 24px; height: 24px; }
 
-  .btn-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .btn-title {
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: #1a1a1a;
-    line-height: 1.4;
-  }
-  .btn-sub {
-    font-size: 0.82rem;
-    color: #aaa;
-    font-weight: 400;
-    margin-top: 0.15rem;
-    line-height: 1.4;
-  }
+  .btn-text { display: flex; flex-direction: column; justify-content: center; }
+  .btn-title { font-size: 1.05rem; font-weight: 500; color: #1a1a1a; line-height: 1.4; }
+  .btn-sub { font-size: 0.82rem; color: #aaa; font-weight: 400; margin-top: 0.15rem; line-height: 1.4; }
 
   .notice {
     font-size: 0.8rem;
@@ -218,37 +191,28 @@
     委託可以 Clibo、E-mail、Plurk 私訊三擇一<br>
   </div>
 
-  <!-- 社群橫排：Email、Plurk、Bluesky、Notion、Blog -->
   <div class="social-row">
-
-    <!-- Email：點擊複製，不暴露 email -->
     <a href="#" title="Copy Email" id="emailBtn" onclick="copyEmail(event)">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
       </svg>
     </a>
-
     <a href="https://www.plurk.com/pingumi" target="_blank" title="Plurk">
       <img src="https://cdn.simpleicons.org/plurk/444" width="22" height="22" alt="Plurk">
     </a>
-
     <a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank" title="Bluesky">
       <img src="https://cdn.simpleicons.org/bluesky/444" width="22" height="22" alt="Bluesky">
     </a>
-
     <a href="https://www.notion.so/b3084beb2e7546cf92b9c934d3f68adf?source=copy_link" target="_blank" title="Notion">
       <img src="https://cdn.simpleicons.org/notion/444" width="22" height="22" alt="Notion">
     </a>
-
-    <!-- Blog：房子 SVG icon -->
     <a href="https://nanxuan.wixsite.com/reizouko" target="_blank" title="Blog">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/>
         <path d="M9 21V12h6v9"/>
       </svg>
     </a>
-
   </div>
 
   <!-- 委託 -->
@@ -257,7 +221,11 @@
 
     <a class="link-btn" href="https://nanxuan.wixsite.com/reizouko/%E5%A7%94%E8%A8%97" target="_blank">
       <div class="btn-icon-wrap">
-        <img src="https://minanxuan.github.io/nanxuanlink/media/internet_icon.png" alt="" onerror="this.style.visibility='hidden'">
+        <!-- 改成連結 SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
       </div>
       <div class="btn-text">
         <span class="btn-title">Commission  委託項目及價目表</span>
@@ -300,7 +268,10 @@
 
     <a class="link-btn" href="https://www.foriio.com/Nanxuan" target="_blank">
       <div class="btn-icon-wrap">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
       </div>
       <div class="btn-text">
         <span class="btn-title">foriio</span>
@@ -327,13 +298,13 @@
     </a>
   </div>
 
-    <div class="notice">
+  <div class="notice">
     DO NOT repost/use my art without my permission.<br>本人所有創作均保留一切著作權與相關權利，<br>禁止二次轉載、轉發、修改、重製、加工、合成、AI學習與訓練、發行、販售或轉售為 NFT、任何形式之商業或非商業利用。
   </div>
 
 </div>
 
-<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:#333;color:#fff;padding:0.6rem 1.4rem;border-radius:999px;font-family:'GenSenRounded',sans-serif;font-size:0.88rem;opacity:0;transition:opacity 0.25s,transform 0.25s;pointer-events:none;white-space:nowrap;z-index:999;">已複製 Email！</div>
+<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:#333;color:#fff;padding:0.6rem 1.4rem;border-radius:999px;font-family:'GenSenRounded',sans-serif;font-size:0.88rem;opacity:0;transition:opacity 0.25s,transform 0.25s;pointer-events:none;white-space:nowrap;z-index:999;">Email copied!</div>
 
 <script>
   function copyEmail(e) {
