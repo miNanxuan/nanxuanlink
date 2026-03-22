@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>南暄（Nanxuan）</title>
 <style>
-  /* 源泉圓體 via jsDelivr */
   @font-face {
     font-family: 'GenSenRounded';
     src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/gensen-font@v1.501/GenSenRoundedTW-R.woff2') format('woff2');
@@ -36,7 +35,7 @@
     align-items: center;
   }
 
-  /* ── TOP COVER BAND ── */
+  /* ── TOP COVER ── */
   .cover {
     width: 100%;
     height: 180px;
@@ -67,24 +66,36 @@
     margin-bottom: 1rem;
   }
 
-  /* ── NAME ── */
+  /* ── NAME: 兩行 ── */
   .name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.45rem;
+    text-align: center;
+  }
+  .name-zh {
     font-size: 1.45rem;
     font-weight: 700;
     color: #1a1a1a;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.55rem;
-    text-align: center;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+  }
+  .name-en {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
   }
 
-  /* ── BIO ── */
+  /* ── BIO（一行）── */
   .bio {
     font-size: 0.98rem;
     color: #666;
     text-align: center;
-    line-height: 2;
-    margin-bottom: 1.4rem;
-    max-width: 360px;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
     font-weight: 400;
   }
 
@@ -119,11 +130,11 @@
   .section { width: 100%; margin-bottom: 1.2rem; }
 
   .section-title {
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: #1a1a1a;
     letter-spacing: 0.06em;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.75rem;
     text-align: center;
   }
 
@@ -188,23 +199,23 @@
     alt="南暄"
     onerror="this.style.background='#c5bdb6'">
 
-  <div class="name">南暄（Nanxuan）</div>
-  <div class="bio">
-    台灣繪師，喜歡古風<br>
-    委託可以 Clibo、E-mail、噗浪私訊三擇一<br>
-    喜歡我的創作可以幫我轉發曝光，或是委託我幫你畫圖😇
+  <!-- 名字兩行 -->
+  <div class="name">
+    <span class="name-zh">南暄</span>
+    <span class="name-en">Nanxuan</span>
   </div>
 
-  <!-- 社群 icon 橫排 -->
+  <!-- 只留一行簡介 -->
+  <div class="bio">台灣繪師，喜歡古風</div>
+
+  <!-- 社群 icon 橫排（移除 Misskey，照標注順序）-->
+  <!-- 1噗浪 2Bluesky 3Pixiv 4Xfolio 5Tumblr 6CxC 7Notion 8Clibo -->
   <div class="social-row">
     <a href="https://www.plurk.com/pingumi" target="_blank" title="噗浪">
       <img src="https://static.wixstatic.com/media/406dc2_fc189aeda5a145c6ab85fea48996eed3~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/plurk.png" alt="Plurk">
     </a>
     <a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank" title="Bluesky">
       <img src="https://static.wixstatic.com/media/406dc2_36395e534e874760992fc418aa7f2069~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-bluesky-48.png" alt="Bluesky">
-    </a>
-    <a href="https://misskey.design/@Nanxuan" target="_blank" title="Misskey">
-      <img src="https://static.wixstatic.com/media/406dc2_0e55eee4fe0144238fe9e5010afe4bb0~mv2.webp" alt="Misskey">
     </a>
     <a href="https://www.pixiv.net/users/3321190" target="_blank" title="Pixiv">
       <img src="https://static.wixstatic.com/media/406dc2_739583d55248405a8b56ae811c18b7b0~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-pixiv-50.png" alt="Pixiv">
