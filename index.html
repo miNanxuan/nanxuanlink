@@ -49,7 +49,6 @@
     padding: 0 1.4rem 4rem;
   }
 
-  /* ── AVATAR ── */
   .avatar {
     width: 120px; height: 120px;
     border-radius: 50%;
@@ -60,7 +59,6 @@
     margin-bottom: 1rem;
   }
 
-  /* ── NAME ── */
   .name {
     display: flex;
     flex-direction: column;
@@ -82,7 +80,6 @@
     line-height: 1.5;
   }
 
-  /* ── BIO ── */
   .bio {
     font-size: 0.95rem;
     color: #666;
@@ -92,7 +89,7 @@
     font-weight: 400;
   }
 
-  /* ── SOCIAL ICONS（剩4個）── */
+  /* ── SOCIAL ICONS ── */
   .social-row {
     display: flex;
     gap: 0.7rem;
@@ -117,6 +114,10 @@
     width: 22px; height: 22px;
     object-fit: contain;
   }
+  /* SVG icon（email）同樣大小 */
+  .social-row a svg {
+    width: 22px; height: 22px;
+  }
 
   /* ── SECTION ── */
   .section { width: 100%; margin-bottom: 1.2rem; }
@@ -129,12 +130,7 @@
     text-align: center;
   }
 
-  /* ── LINK BUTTONS ──
-     grid 三欄：
-     col1 = 48px 固定（icon 置中）
-     col2 = 剩餘空間（文字）
-     所有按鈕 min-height 統一
-  */
+  /* ── LINK BUTTONS ── */
   .link-btn {
     display: grid;
     grid-template-columns: 48px 1fr;
@@ -158,7 +154,6 @@
   }
   .link-btn:active { transform: translateY(0); }
 
-  /* icon 欄：固定 48px，圖示置中 */
   .btn-icon-wrap {
     width: 48px;
     display: flex;
@@ -172,7 +167,6 @@
     display: block;
   }
 
-  /* 文字欄 */
   .btn-text {
     display: flex;
     flex-direction: column;
@@ -192,7 +186,6 @@
     line-height: 1.4;
   }
 
-  /* ── NOTICE ── */
   .notice {
     font-size: 0.8rem;
     color: #bbb;
@@ -225,20 +218,34 @@
     委託可以 Clibo、E-mail、Plurk 私訊三擇一<br>
   </div>
 
-  <!-- 社群橫排：Plurk、Bluesky、Notion、Blog -->
+  <!-- 社群橫排：Email、Plurk、Bluesky、Notion、Blog -->
   <div class="social-row">
-    <a href="https://www.plurk.com/pingumi" target="_blank" title="plurk">
+
+    <!-- Email：SVG 信封，不依賴外部圖片 -->
+    <a href="mailto:sasusaku622@gmail.com" title="Email">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+    </a>
+
+    <a href="https://www.plurk.com/pingumi" target="_blank" title="Plurk">
       <img src="https://static.wixstatic.com/media/406dc2_fc189aeda5a145c6ab85fea48996eed3~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/plurk.png" alt="Plurk">
     </a>
+
     <a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank" title="Bluesky">
       <img src="https://static.wixstatic.com/media/406dc2_36395e534e874760992fc418aa7f2069~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-bluesky-48.png" alt="Bluesky">
     </a>
+
     <a href="https://www.notion.so/b3084beb2e7546cf92b9c934d3f68adf?source=copy_link" target="_blank" title="Notion">
       <img src="https://static.wixstatic.com/media/406dc2_a2f4d9f2a201407080c2f5d8f2bf62f6~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/notion.png" alt="Notion">
     </a>
+
+    <!-- Blog：只用本地路徑，不加任何多餘參數 -->
     <a href="https://nanxuan.wixsite.com/reizouko" target="_blank" title="Blog">
-      <img src="https://minanxuan.github.io/nanxuanlink/media/internet_icon.png/v1/fill/w_23,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/internet_icon.png" alt="Blog">
+      <img src="https://minanxuan.github.io/nanxuanlink/media/internet_icon.png" alt="Blog">
     </a>
+
   </div>
 
   <!-- 委託 -->
