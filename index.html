@@ -4,91 +4,111 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>南暄（Nanxuan）</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
+  /* 源泉圓體 via jsDelivr */
+  @font-face {
+    font-family: 'GenSenRounded';
+    src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/gensen-font@v1.501/GenSenRoundedTW-R.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'GenSenRounded';
+    src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/gensen-font@v1.501/GenSenRoundedTW-M.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'GenSenRounded';
+    src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/gensen-font@v1.501/GenSenRoundedTW-B.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #f2ede8;
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'GenSenRounded', 'Noto Sans TC', sans-serif;
+    background: #faf7f4;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 4rem;
   }
 
-  .top-band {
+  /* ── TOP COVER BAND ── */
+  .cover {
     width: 100%;
-    height: 160px;
-    background: #c8bfb4;
+    height: 180px;
+    background: linear-gradient(135deg, #b8c4c8 0%, #9eafb5 100%);
     flex-shrink: 0;
   }
 
+  /* ── CARD ── */
   .card {
     width: 100%;
-    max-width: 520px;
+    max-width: 540px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -56px;
-    padding: 0 1.2rem;
+    margin-top: -60px;
+    padding: 0 1.4rem 4rem;
   }
 
+  /* ── AVATAR ── */
   .avatar {
-    width: 112px; height: 112px;
+    width: 120px; height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #fff;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.13);
-    background: #ddd;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    background: #d5cec8;
     display: block;
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
   }
 
+  /* ── NAME ── */
   .name {
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     font-weight: 700;
     color: #1a1a1a;
-    letter-spacing: 0.03em;
-    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.55rem;
     text-align: center;
   }
 
+  /* ── BIO ── */
   .bio {
-    font-size: 0.95rem;
-    color: #555;
+    font-size: 0.98rem;
+    color: #666;
     text-align: center;
-    line-height: 1.9;
+    line-height: 2;
     margin-bottom: 1.4rem;
-    max-width: 340px;
-    font-weight: 300;
+    max-width: 360px;
+    font-weight: 400;
   }
 
-  /* ── SOCIAL ICONS ROW ── */
+  /* ── SOCIAL ICONS ── */
   .social-row {
     display: flex;
-    gap: 0.75rem;
-    align-items: center;
+    gap: 0.7rem;
     justify-content: center;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
+    margin-bottom: 2.2rem;
   }
   .social-row a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px; height: 40px;
+    width: 42px; height: 42px;
     border-radius: 50%;
     background: #fff;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     text-decoration: none;
     transition: transform 0.15s, box-shadow 0.15s;
+    flex-shrink: 0;
   }
   .social-row a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.15);
   }
   .social-row a img {
     width: 22px; height: 22px;
@@ -96,74 +116,77 @@
   }
 
   /* ── SECTION ── */
-  .section { width: 100%; margin-bottom: 0.8rem; }
+  .section { width: 100%; margin-bottom: 1.2rem; }
+
   .section-title {
-    font-size: 0.88rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #1a1a1a;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.6rem;
-    padding-left: 0.2rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
+    text-align: center;
   }
 
   /* ── LINK BUTTONS ── */
   .link-btn {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 1rem 1.3rem;
-    margin-bottom: 0.55rem;
+    padding: 1.1rem 1.5rem;
+    margin-bottom: 0.6rem;
     background: #fff;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     color: #1a1a1a;
     text-decoration: none;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+    text-align: center;
   }
   .link-btn:hover {
-    background: #fdfcfb;
+    background: #f8f5f2;
     transform: translateY(-2px);
-    box-shadow: 0 5px 16px rgba(0,0,0,0.11);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.11);
   }
   .link-btn:active { transform: translateY(0); }
+
   .link-btn .btn-title {
-    font-size: 1rem;
+    font-size: 1.08rem;
     font-weight: 500;
     color: #1a1a1a;
     line-height: 1.4;
   }
   .link-btn .btn-sub {
-    font-size: 0.8rem;
-    color: #999;
-    font-weight: 300;
-    margin-top: 0.2rem;
+    font-size: 0.85rem;
+    color: #aaa;
+    font-weight: 400;
+    margin-top: 0.25rem;
     line-height: 1.4;
   }
 
+  /* ── NOTICE ── */
   .notice {
-    font-size: 0.78rem;
-    color: #aaa;
+    font-size: 0.8rem;
+    color: #bbb;
     text-align: center;
-    line-height: 1.9;
+    line-height: 2;
     margin-top: 1.5rem;
-    padding: 0 0.5rem;
-    font-weight: 300;
+    font-weight: 400;
   }
 </style>
 </head>
 <body>
 
-<div class="top-band"></div>
+<div class="cover"></div>
 
 <div class="card">
 
   <img class="avatar"
     src="https://minanxuan.github.io/nanxuanlink/media/profilepic.png"
     alt="南暄"
-    onerror="this.style.background='#c8bfb4'">
+    onerror="this.style.background='#c5bdb6'">
 
   <div class="name">南暄（Nanxuan）</div>
   <div class="bio">
