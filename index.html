@@ -221,8 +221,8 @@
   <!-- 社群橫排：Email、Plurk、Bluesky、Notion、Blog -->
   <div class="social-row">
 
-    <!-- Email：SVG 信封，不依賴外部圖片 -->
-    <a href="/cdn-cgi/l/email-protection#0f7c6e7c7a7c6e647a393d3d4f68626e6663216c6062" title="Email">
+    <!-- Email：點擊複製，不暴露 email -->
+    <a href="#" title="複製 Email" id="emailBtn" onclick="copyEmail(event)">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
@@ -327,5 +327,29 @@
     </a>
   </div>
 
-  <div class="notice">
-    DO NOT repost/use my art without my permission.<br>本人所有創作均保留一切著作權與相關權利，<br>禁止二次轉載、轉發、修改、重製、加工、合成、AI學習與訓練、發行、販售或轉售為 NFT、任何形式之商業或非商�
+    <div class="notice">
+    DO NOT repost/use my art without my permission.<br>本人所有創作均保留一切著作權與相關權利，<br>禁止二次轉載、轉發、修改、重製、加工、合成、AI學習與訓練、發行、販售或轉售為 NFT、任何形式之商業或非商業利用。
+  </div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:#333;color:#fff;padding:0.6rem 1.4rem;border-radius:999px;font-family:'GenSenRounded',sans-serif;font-size:0.88rem;opacity:0;transition:opacity 0.25s,transform 0.25s;pointer-events:none;white-space:nowrap;z-index:999;">已複製 Email！</div>
+
+<script>
+  function copyEmail(e) {
+    e.preventDefault();
+    const parts = ['sasusaku622', 'gmail', 'com'];
+    const email = parts[0] + '@' + parts[1] + '.' + parts[2];
+    navigator.clipboard.writeText(email).then(() => {
+      const toast = document.getElementById('toast');
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(-50%) translateY(0)';
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(20px)';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
