@@ -257,10 +257,10 @@
       box-shadow: none;
     }
     .social-row a:hover { background: rgba(0,0,0,0.12); }
-    .social-row a img { width: 18px; height: 18px; }
+    .social-row a img { width: 18px; height: 18px; filter: brightness(0) opacity(0.65); }
     .social-row a svg { width: 18px; height: 18px; }
-    /* sidebar icon 顏色跟右欄一樣，不用 invert */
-    .sidebar .social-row a img { filter: none; }
+    /* sidebar icon 亮色：深色；深色：亮色 */
+    .sidebar .social-row a img { filter: brightness(0) opacity(0.65); }
     .sidebar .social-row a svg { stroke: #444 !important; }
     [data-theme="dark"] .sidebar .social-row a { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
     [data-theme="dark"] .sidebar .social-row a img { filter: invert(1) brightness(0.78); }
@@ -341,22 +341,22 @@
     </div>
     <div class="social-row">
       <a href="#" title="Copy Email" onclick="copyEmail(event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2"/>
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
         </svg>
       </a>
       <a href="https://www.plurk.com/pingumi" target="_blank" title="Plurk">
-        <img src="https://cdn.simpleicons.org/plurk/fff" alt="Plurk">
+        <img src="https://cdn.simpleicons.org/plurk/444" alt="Plurk">
       </a>
       <a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank" title="Bluesky">
-        <img src="https://cdn.simpleicons.org/bluesky/fff" alt="Bluesky">
+        <img src="https://cdn.simpleicons.org/bluesky/444" alt="Bluesky">
       </a>
       <a href="https://www.notion.so/b3084beb2e7546cf92b9c934d3f68adf?source=copy_link" target="_blank" title="Notion">
-        <img src="https://cdn.simpleicons.org/notion/fff" alt="Notion">
+        <img src="https://cdn.simpleicons.org/notion/444" alt="Notion">
       </a>
       <a href="https://nanxuan.wixsite.com/reizouko" target="_blank" title="Blog">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/>
           <path d="M9 21V12h6v9"/>
         </svg>
