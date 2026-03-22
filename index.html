@@ -1,35 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>Nanxuanlink</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南暄（Nanxuan）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f2ede8;
+    font-family: 'Noto Sans TC', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+  }
+
+  .top-band {
+    width: 100%;
+    height: 160px;
+    background: #c8bfb4;
+    flex-shrink: 0;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -56px;
+    padding: 0 1.2rem;
+  }
+
+  .avatar {
+    width: 112px; height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+    background: #ddd;
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .bio {
+    font-size: 0.95rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
+    max-width: 340px;
+    font-weight: 300;
+  }
+
+  /* ── SOCIAL ICONS ROW ── */
+  .social-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .social-row a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .social-row a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .social-row a img {
+    width: 22px; height: 22px;
+    object-fit: contain;
+  }
+
+  /* ── SECTION ── */
+  .section { width: 100%; margin-bottom: 0.8rem; }
+  .section-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6rem;
+    padding-left: 0.2rem;
+  }
+
+  /* ── LINK BUTTONS ── */
+  .link-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 1.3rem;
+    margin-bottom: 0.55rem;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    color: #1a1a1a;
+    text-decoration: none;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  }
+  .link-btn:hover {
+    background: #fdfcfb;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgba(0,0,0,0.11);
+  }
+  .link-btn:active { transform: translateY(0); }
+  .link-btn .btn-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+  .link-btn .btn-sub {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 300;
+    margin-top: 0.2rem;
+    line-height: 1.4;
+  }
+
+  .notice {
+    font-size: 0.78rem;
+    color: #aaa;
+    text-align: center;
+    line-height: 1.9;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+    font-weight: 300;
+  }
+</style>
 </head>
 <body>
 
-    <div class="profile_card_div">
-        <div class="whoami_div">
-            <div class="profilepic_div">
-                <img src="media/profilepic.png" alt="" class="profilepic">
-            </div>
-            <div class="textinfo">
-                <h1 class="name">南  暄（Nanxuan）</h1>
-                <h2 class="profession">Taiwanese artist</h2>
-            </div>
-        </div>
-            <div class="linkscard_div">
-                <ul>
-                    <li class="list-item"><a href="https://www.plurk.com/pingumi" target="_blank"><img src="media/plurk_icon.png" alt="Plurk">Plurk</a></li>
-                    <li class="list-item"><a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank"><img src="media/bluesky_icon.png" alt="Bluesky">Bluesky</a></li>
-                    <li class="list-item"><a href="https://www.pixiv.net/users/3321190" target="_blank"><img src="media/pixiv_icon.png" alt="Pixiv">Pixiv</a></li>
-                    <li class="list-item"><a href="https://xfolio.jp/zh-CHT/portfolio/Nanxuan" target="_blank"><img src="media/xfolio_icon.png" alt="Xfolio">Xfolio</a></li>
-                    <li class="list-item"><a href="https://nanxuan.wixsite.com/reizouko" target="_blank"><img src="media/internet_icon.png" alt="Blog">Blog</a></li>
-                    <li class="list-item"><a href="https://pse.is/7tgw3c" target="_blank"><img src="media/notion_icon.png" alt="Notion">Notion</a></li>
-                </ul>
-            </div>
-    </div>
+<div class="top-band"></div>
+
+<div class="card">
+
+  <img class="avatar"
+    src="https://minanxuan.github.io/nanxuanlink/media/profilepic.png"
+    alt="南暄"
+    onerror="this.style.background='#c8bfb4'">
+
+  <div class="name">南暄（Nanxuan）</div>
+  <div class="bio">
+    台灣繪師，喜歡古風<br>
+    委託可以 Clibo、E-mail、噗浪私訊三擇一<br>
+    喜歡我的創作可以幫我轉發曝光，或是委託我幫你畫圖😇
+  </div>
+
+  <!-- 社群 icon 橫排 -->
+  <div class="social-row">
+    <a href="https://www.plurk.com/pingumi" target="_blank" title="噗浪">
+      <img src="https://static.wixstatic.com/media/406dc2_fc189aeda5a145c6ab85fea48996eed3~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/plurk.png" alt="Plurk">
+    </a>
+    <a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank" title="Bluesky">
+      <img src="https://static.wixstatic.com/media/406dc2_36395e534e874760992fc418aa7f2069~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-bluesky-48.png" alt="Bluesky">
+    </a>
+    <a href="https://misskey.design/@Nanxuan" target="_blank" title="Misskey">
+      <img src="https://static.wixstatic.com/media/406dc2_0e55eee4fe0144238fe9e5010afe4bb0~mv2.webp" alt="Misskey">
+    </a>
+    <a href="https://www.pixiv.net/users/3321190" target="_blank" title="Pixiv">
+      <img src="https://static.wixstatic.com/media/406dc2_739583d55248405a8b56ae811c18b7b0~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-pixiv-50.png" alt="Pixiv">
+    </a>
+    <a href="https://xfolio.jp/zh-CHT/portfolio/Nanxuan" target="_blank" title="Xfolio">
+      <img src="https://static.wixstatic.com/media/406dc2_1534fba10535477a94e97bd35974b5e2~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/xfolio_black_transparent.png" alt="Xfolio">
+    </a>
+    <a href="https://94nanxuan.tumblr.com/" target="_blank" title="Tumblr">
+      <img src="https://static.wixstatic.com/media/406dc2_1675b18d3c154be7a1085d03d6469da1~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Tumblr_Logos_2018_03_06_Android%20Icon%20Black.png" alt="Tumblr">
+    </a>
+    <a href="https://cxc.today/zh/@Jiusxuan" target="_blank" title="CxC">
+      <img src="https://static.wixstatic.com/media/406dc2_400019873c48422cbebd194e6381a28e~mv2.png/v1/fill/w_24,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/cxc.png" alt="CxC">
+    </a>
+    <a href="https://www.notion.so/b3084beb2e7546cf92b9c934d3f68adf?source=copy_link" target="_blank" title="Notion">
+      <img src="https://static.wixstatic.com/media/406dc2_a2f4d9f2a201407080c2f5d8f2bf62f6~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/notion.png" alt="Notion">
+    </a>
+    <a href="https://clibo.tw/users/lKmAEU" target="_blank" title="Clibo">
+      <img src="https://static.wixstatic.com/media/406dc2_b63bbc4c74764124b1a8d6275ea1c3aa~mv2.png/v1/fill/w_23,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/idVqcP4_0v_logos%202.png" alt="Clibo">
+    </a>
+  </div>
+
+  <!-- 委託 -->
+  <div class="section">
+    <div class="section-title">委託</div>
+    <a class="link-btn" href="https://nanxuan.wixsite.com/reizouko/%E5%A7%94%E8%A8%97" target="_blank">
+      <span class="btn-title">Commission 委託項目及價目表</span>
+      <span class="btn-sub">插圖・立繪・Q版・像素・頭像</span>
+    </a>
+    <a class="link-btn" href="https://clibo.tw/users/lKmAEU" target="_blank">
+      <span class="btn-title">Clibo</span>
+      <span class="btn-sub">可於此平台直接委託</span>
+    </a>
+  </div>
+
+  <!-- 作品集 -->
+  <div class="section">
+    <div class="section-title">作品集</div>
+    <a class="link-btn" href="https://www.pixiv.net/users/3321190" target="_blank">
+      <span class="btn-title">Pixiv</span>
+    </a>
+    <a class="link-btn" href="https://xfolio.jp/zh-CHT/portfolio/Nanxuan" target="_blank">
+      <span class="btn-title">Xfolio</span>
+      <span class="btn-sub">替代 Pixiv</span>
+    </a>
+    <a class="link-btn" href="https://www.foriio.com/Nanxuan" target="_blank">
+      <span class="btn-title">foriio</span>
+    </a>
+    <a class="link-btn" href="https://94nanxuan.tumblr.com/" target="_blank">
+      <span class="btn-title">Tumblr</span>
+    </a>
+    <a class="link-btn" href="https://cxc.today/zh/@Jiusxuan" target="_blank">
+      <span class="btn-title">CxC</span>
+      <span class="btn-sub">少更新</span>
+    </a>
+  </div>
+
+  <div class="notice">
+    本人作品禁止用作自用頭像、網站、NFT、AI學習、<br>製作週邊販賣及其他未經本人許可之使用
+  </div>
+
+</div>
 </body>
 </html>
