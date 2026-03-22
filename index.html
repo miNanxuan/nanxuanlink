@@ -66,7 +66,6 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 0.7rem;
-    text-align: center;
   }
   .name-zh {
     font-size: 1.45rem;
@@ -93,12 +92,11 @@
     font-weight: 400;
   }
 
-  /* ── SOCIAL ICONS ROW ── */
+  /* ── SOCIAL ICONS（剩4個）── */
   .social-row {
     display: flex;
     gap: 0.7rem;
     justify-content: center;
-    flex-wrap: wrap;
     margin-bottom: 2rem;
   }
   .social-row a {
@@ -108,8 +106,8 @@
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     text-decoration: none;
-    transition: transform 0.15s, box-shadow 0.15s;
     flex-shrink: 0;
+    transition: transform 0.15s, box-shadow 0.15s;
   }
   .social-row a:hover {
     transform: translateY(-2px);
@@ -132,17 +130,18 @@
   }
 
   /* ── LINK BUTTONS ──
-     · 固定 min-height 讓有副標的和沒副標的高度一致
-     · icon 緊貼文字左側，整體 inline 置中
+     grid 三欄：
+     col1 = 48px 固定（icon 置中）
+     col2 = 剩餘空間（文字）
+     所有按鈕 min-height 統一
   */
   .link-btn {
-    display: flex;
+    display: grid;
+    grid-template-columns: 48px 1fr;
     align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
     width: 100%;
-    min-height: 68px;          /* ← 統一高度 */
-    padding: 0.9rem 1.4rem;
+    min-height: 68px;
+    padding: 0.85rem 1.2rem 0.85rem 0.8rem;
     margin-bottom: 0.6rem;
     background: #fff;
     border: none;
@@ -159,19 +158,25 @@
   }
   .link-btn:active { transform: translateY(0); }
 
-  /* icon 緊貼文字左側 */
-  .btn-icon {
-    width: 26px; height: 26px;
-    object-fit: contain;
+  /* icon 欄：固定 48px，圖示置中 */
+  .btn-icon-wrap {
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
+  .btn-icon-wrap img {
+    width: 28px; height: 28px;
+    object-fit: contain;
+    display: block;
+  }
 
-  /* 文字區 */
+  /* 文字欄 */
   .btn-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    justify-content: center;
   }
   .btn-title {
     font-size: 1.05rem;
@@ -222,25 +227,13 @@
     或是委託我幫你畫圖😇
   </div>
 
-  <!-- 社群 icon 橫排 -->
+  <!-- 社群橫排：噗浪、Bluesky、Notion、Clibo -->
   <div class="social-row">
     <a href="https://www.plurk.com/pingumi" target="_blank" title="噗浪">
       <img src="https://static.wixstatic.com/media/406dc2_fc189aeda5a145c6ab85fea48996eed3~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/plurk.png" alt="Plurk">
     </a>
     <a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank" title="Bluesky">
       <img src="https://static.wixstatic.com/media/406dc2_36395e534e874760992fc418aa7f2069~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-bluesky-48.png" alt="Bluesky">
-    </a>
-    <a href="https://www.pixiv.net/users/3321190" target="_blank" title="Pixiv">
-      <img src="https://static.wixstatic.com/media/406dc2_739583d55248405a8b56ae811c18b7b0~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-pixiv-50.png" alt="Pixiv">
-    </a>
-    <a href="https://xfolio.jp/zh-CHT/portfolio/Nanxuan" target="_blank" title="Xfolio">
-      <img src="https://static.wixstatic.com/media/406dc2_1534fba10535477a94e97bd35974b5e2~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/xfolio_black_transparent.png" alt="Xfolio">
-    </a>
-    <a href="https://94nanxuan.tumblr.com/" target="_blank" title="Tumblr">
-      <img src="https://static.wixstatic.com/media/406dc2_1675b18d3c154be7a1085d03d6469da1~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Tumblr_Logos_2018_03_06_Android%20Icon%20Black.png" alt="Tumblr">
-    </a>
-    <a href="https://cxc.today/zh/@Jiusxuan" target="_blank" title="CxC">
-      <img src="https://static.wixstatic.com/media/406dc2_400019873c48422cbebd194e6381a28e~mv2.png/v1/fill/w_24,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/cxc.png" alt="CxC">
     </a>
     <a href="https://www.notion.so/b3084beb2e7546cf92b9c934d3f68adf?source=copy_link" target="_blank" title="Notion">
       <img src="https://static.wixstatic.com/media/406dc2_a2f4d9f2a201407080c2f5d8f2bf62f6~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/notion.png" alt="Notion">
@@ -255,7 +248,9 @@
     <div class="section-title">委託</div>
 
     <a class="link-btn" href="https://nanxuan.wixsite.com/reizouko/%E5%A7%94%E8%A8%97" target="_blank">
-      <img class="btn-icon" src="https://minanxuan.github.io/nanxuanlink/media/internet_icon.png" alt="" onerror="this.style.display='none'">
+      <div class="btn-icon-wrap">
+        <img src="https://minanxuan.github.io/nanxuanlink/media/internet_icon.png" alt="" onerror="this.style.visibility='hidden'">
+      </div>
       <div class="btn-text">
         <span class="btn-title">Commission 委託項目及價目表</span>
         <span class="btn-sub">插圖・立繪・Q版・像素・頭像</span>
@@ -263,7 +258,9 @@
     </a>
 
     <a class="link-btn" href="https://clibo.tw/users/lKmAEU" target="_blank">
-      <img class="btn-icon" src="https://static.wixstatic.com/media/406dc2_b63bbc4c74764124b1a8d6275ea1c3aa~mv2.png/v1/fill/w_23,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/idVqcP4_0v_logos%202.png" alt="Clibo">
+      <div class="btn-icon-wrap">
+        <img src="https://static.wixstatic.com/media/406dc2_b63bbc4c74764124b1a8d6275ea1c3aa~mv2.png/v1/fill/w_23,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/idVqcP4_0v_logos%202.png" alt="Clibo">
+      </div>
       <div class="btn-text">
         <span class="btn-title">Clibo</span>
         <span class="btn-sub">可於此平台直接委託</span>
@@ -276,14 +273,18 @@
     <div class="section-title">作品集</div>
 
     <a class="link-btn" href="https://www.pixiv.net/users/3321190" target="_blank">
-      <img class="btn-icon" src="https://static.wixstatic.com/media/406dc2_739583d55248405a8b56ae811c18b7b0~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-pixiv-50.png" alt="Pixiv">
+      <div class="btn-icon-wrap">
+        <img src="https://static.wixstatic.com/media/406dc2_739583d55248405a8b56ae811c18b7b0~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/icons8-pixiv-50.png" alt="Pixiv">
+      </div>
       <div class="btn-text">
         <span class="btn-title">Pixiv</span>
       </div>
     </a>
 
     <a class="link-btn" href="https://xfolio.jp/zh-CHT/portfolio/Nanxuan" target="_blank">
-      <img class="btn-icon" src="https://static.wixstatic.com/media/406dc2_1534fba10535477a94e97bd35974b5e2~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/xfolio_black_transparent.png" alt="Xfolio">
+      <div class="btn-icon-wrap">
+        <img src="https://static.wixstatic.com/media/406dc2_1534fba10535477a94e97bd35974b5e2~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/xfolio_black_transparent.png" alt="Xfolio">
+      </div>
       <div class="btn-text">
         <span class="btn-title">Xfolio</span>
         <span class="btn-sub">替代 Pixiv</span>
@@ -291,21 +292,27 @@
     </a>
 
     <a class="link-btn" href="https://www.foriio.com/Nanxuan" target="_blank">
-      <img class="btn-icon" src="https://minanxuan.github.io/nanxuanlink/media/internet_icon.png" alt="foriio" onerror="this.style.display='none'">
+      <div class="btn-icon-wrap">
+        <img src="https://minanxuan.github.io/nanxuanlink/media/internet_icon.png" alt="foriio" onerror="this.style.visibility='hidden'">
+      </div>
       <div class="btn-text">
         <span class="btn-title">foriio</span>
       </div>
     </a>
 
     <a class="link-btn" href="https://94nanxuan.tumblr.com/" target="_blank">
-      <img class="btn-icon" src="https://static.wixstatic.com/media/406dc2_1675b18d3c154be7a1085d03d6469da1~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Tumblr_Logos_2018_03_06_Android%20Icon%20Black.png" alt="Tumblr">
+      <div class="btn-icon-wrap">
+        <img src="https://static.wixstatic.com/media/406dc2_1675b18d3c154be7a1085d03d6469da1~mv2.png/v1/fill/w_30,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/Tumblr_Logos_2018_03_06_Android%20Icon%20Black.png" alt="Tumblr">
+      </div>
       <div class="btn-text">
         <span class="btn-title">Tumblr</span>
       </div>
     </a>
 
     <a class="link-btn" href="https://cxc.today/zh/@Jiusxuan" target="_blank">
-      <img class="btn-icon" src="https://static.wixstatic.com/media/406dc2_400019873c48422cbebd194e6381a28e~mv2.png/v1/fill/w_24,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/cxc.png" alt="CxC">
+      <div class="btn-icon-wrap">
+        <img src="https://static.wixstatic.com/media/406dc2_400019873c48422cbebd194e6381a28e~mv2.png/v1/fill/w_24,h_30,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/cxc.png" alt="CxC">
+      </div>
       <div class="btn-text">
         <span class="btn-title">CxC</span>
         <span class="btn-sub">少更新</span>
