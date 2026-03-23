@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>南暄（Nanxuan）</title>
+<meta name="theme-color" content="#faf7f4" id="themeColorMeta">
+<meta property="og:title" content="南暄（Nanxuan）">
+<meta property="og:description" content="台灣繪師｜原創・古風・BG・FF14">
+<meta property="og:image" content="https://minanxuan.github.io/nanxuanlink/media/profilepic.png">
+<meta property="og:url" content="https://minanxuan.github.io/nanxuanlink/">
+<meta name="twitter:card" content="summary">
 <style>
   @font-face { font-family:'GenSenRounded'; src:url('https://cdn.jsdelivr.net/gh/ButTaiwan/gensen-font@v1.501/GenSenRoundedTW-R.woff2') format('woff2'); font-weight:400; font-display:swap; }
   @font-face { font-family:'GenSenRounded'; src:url('https://cdn.jsdelivr.net/gh/ButTaiwan/gensen-font@v1.501/GenSenRoundedTW-M.woff2') format('woff2'); font-weight:500; font-display:swap; }
@@ -43,6 +49,9 @@
   .theme-toggle { position:fixed; top:1rem; right:1rem; z-index:200; width:36px; height:36px; border-radius:50%; background:var(--toggle-bg); border:0.5px solid var(--border); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.3s; }
   .theme-toggle:hover { background:var(--btn-hover); }
   .theme-toggle svg { width:16px; height:16px; }
+  .share-btn { position:fixed; top:1rem; right:3.5rem; z-index:200; width:36px; height:36px; border-radius:50%; background:var(--toggle-bg); border:0.5px solid var(--border); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.3s; }
+  .share-btn:hover { background:var(--btn-hover); }
+  .share-btn svg { width:16px; height:16px; }
   .icon-sun { display:none; } .icon-moon { display:block; }
   [data-theme="dark"] .icon-sun { display:block; } [data-theme="dark"] .icon-moon { display:none; }
 
@@ -99,6 +108,12 @@
 </head>
 <body>
 
+<button class="share-btn" onclick="sharePage()" aria-label="分享">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+    <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+  </svg>
+</button>
 <button class="theme-toggle" onclick="toggleTheme()" aria-label="切換主題">
   <svg class="icon-moon" viewBox="0 0 24 24" class="ic"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -222,26 +237,54 @@
 <div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:#333;color:#fff;padding:0.6rem 1.4rem;border-radius:999px;font-family:'GenSenRounded',sans-serif;font-size:0.88rem;opacity:0;transition:opacity 0.25s,transform 0.25s;pointer-events:none;white-space:nowrap;z-index:999;">Email copied!</div>
 
 <script>
+  const THEME_COLORS = { light:'#faf7f4', dark:'#1a1816' };
+
   function toggleTheme() {
     const html = document.documentElement;
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+    document.getElementById('themeColorMeta').setAttribute('content', THEME_COLORS[next]);
   }
   (function() {
     const saved = localStorage.getItem('theme');
-    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+      document.getElementById('themeColorMeta').setAttribute('content', THEME_COLORS[saved]);
+    }
   })();
+
+  function sharePage() {
+    if (navigator.share) {
+      navigator.share({
+        title: '南暄（Nanxuan）',
+        text: '台灣繪師｜原創・古風・BG・FF14',
+        url: window.location.href
+      });
+    } else {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('Link copied!');
+      });
+    }
+  }
+
   function copyEmail(e) {
     e.preventDefault();
     const parts = ['sasusaku622','gmail','com'];
-    const email = parts[0]+'@'+parts[1]+'.'+parts[2];
-    navigator.clipboard.writeText(email).then(() => {
-      const toast = document.getElementById('toast');
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateX(-50%) translateY(0)';
-      setTimeout(() => { toast.style.opacity='0'; toast.style.transform='translateX(-50%) translateY(20px)'; }, 2000);
+    navigator.clipboard.writeText(parts[0]+'@'+parts[1]+'.'+parts[2]).then(() => {
+      showToast('Email copied!');
     });
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(-50%) translateY(20px)';
+    }, 2000);
   }
 </script>
 </body>
