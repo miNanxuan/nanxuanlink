@@ -25,10 +25,10 @@
   }
   [data-theme="dark"] {
     --bg:#1a1816; --bg2:#222018; --card:#2a2724;
-    --border:rgba(255,255,255,0.08); --text1:#f0ece4; --text2:#c8bfb0; --text3:#665e52;
+    --border:rgba(255,255,255,0.08); --text1:#f0ece4; --text2:#c8bfb0; --text3:#8a7f70;
     --btn-bg:#2a2724; --btn-hover:#342f2a;
     --cover:linear-gradient(135deg,#2c2a26 0%,#1e1c19 100%);
-    --shadow:0 2px 8px rgba(0,0,0,0.3); --toggle-bg:rgba(255,255,255,0.08);
+    --shadow:0 2px 8px rgba(0,0,0,0.3); --toggle-bg:rgba(255,255,255,0.18);
     --ic:#c8bfb0;
   }
 
@@ -42,16 +42,13 @@
   .ic { fill:none; stroke:var(--ic); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
   .ic-fill { fill:var(--ic); stroke:none; }
 
-  /* Plurk img icon — 跟隨 --ic 顏色，尺寸固定 26px */
-  .plurk-icon {
-    width:26px; height:26px; object-fit:contain;
-    filter:brightness(0) opacity(0.27); /* light mode: #444 ≈ 27% black */
-  }
-  [data-theme="dark"] .plurk-icon {
-    filter:invert(1) brightness(0.78) sepia(0.15); /* dark mode: #c8bfb0 */
-  }
+  /* ── Plurk SVG icon — 跟隨 --ic 顏色 ── */
+  .plurk-icon-svg { fill:var(--ic); }
 
-  /* sidebar social-row 的 Plurk img */
+  /* ── Pixiv SVG icon — 跟隨 --ic 顏色，統一 26px ── */
+  .pixiv-icon { fill:var(--ic); width:26px; height:26px; }
+
+  /* sidebar social-row 的 img */
   .social-row a img {
     width:20px; height:20px; object-fit:contain;
     filter:brightness(0) opacity(0.65);
@@ -66,6 +63,10 @@
   .share-btn svg { width:16px; height:16px; }
   .icon-sun { display:none; } .icon-moon { display:block; }
   [data-theme="dark"] .icon-sun { display:block; } [data-theme="dark"] .icon-moon { display:none; }
+
+  /* 深色模式下讓按鈕圖示更明顯 */
+  [data-theme="dark"] .theme-toggle svg,
+  [data-theme="dark"] .share-btn svg { stroke:#e0d8cc; color:#e0d8cc; }
 
   /* MOBILE */
   .cover { width:100%; height:180px; background:var(--cover); flex-shrink:0; transition:background 0.3s; }
@@ -159,15 +160,10 @@
       <img class="avatar" src="https://minanxuan.github.io/nanxuanlink/media/profilepic.png" alt="南暄" onerror="this.style.background='#c5bdb6'">
       <div class="name"><span class="name-zh">南暄</span><span class="name-en">（Nanxuan）</span></div>
       <div class="bio">台灣繪師<br>原創｜古風｜BG｜FF14<br>委託可以 Clibo、E-mail、Plurk 私訊三擇一</div>
+      <!-- 手機版 social-row：移除 Plurk 和 Bluesky，只保留 Email、Notion、Blog -->
       <div class="social-row">
         <a href="#" title="Copy Email" onclick="copyEmail(event)">
           <svg viewBox="0 0 24 24" class="ic"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </a>
-        <a href="https://www.plurk.com/pingumi" target="_blank" title="Plurk">
-          <img src="https://cdn.simpleicons.org/plurk/444" width="20" height="20" alt="Plurk">
-        </a>
-        <a href="https://bsky.app/profile/nanxuan.bsky.social" target="_blank" title="Bluesky">
-          <svg viewBox="0 0 24 24" class="ic-fill"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
         </a>
         <a href="https://www.notion.so/b3084beb2e7546cf92b9c934d3f68adf?source=copy_link" target="_blank" title="Notion">
           <svg viewBox="0 0 24 24" class="ic-fill"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
@@ -182,8 +178,10 @@
         <div class="section-title">SNS　社群</div>
         <a class="link-btn" href="https://www.plurk.com/pingumi" target="_blank">
           <div class="btn-icon-wrap">
-            <!-- Plurk：用 img + .plurk-icon class 控制顏色與大小 -->
-            <img src="https://cdn.simpleicons.org/plurk/444" alt="Plurk" class="plurk-icon">
+            <!-- Plurk：SVG path 使用 --ic 顏色 -->
+            <svg viewBox="0 0 64 64" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+              <path class="plurk-icon-svg" d="M37.1 6C21.2 6 8.3 18.9 8.3 34.8c0 8.4 3.6 15.9 9.3 21.1h39.1c5.7-5.2 9.3-12.7 9.3-21.1C66 18.9 53.1 6 37.1 6zM22.4 44.5c-5.4 0-9.7-4.4-9.7-9.7 0-5.4 4.4-9.7 9.7-9.7 2.5 0 4.8.9 6.5 2.5l8.5-4.9c-.3-.9-.5-1.8-.5-2.8 0-5.4 4.4-9.7 9.7-9.7s9.7 4.4 9.7 9.7-4.4 9.7-9.7 9.7c-2.5 0-4.8-.9-6.5-2.5l-8.5 4.9c.3.9.5 1.8.5 2.8.1 5.4-4.3 9.7-9.7 9.7z"/>
+            </svg>
           </div>
           <div class="btn-text">
             <span class="btn-title">Plurk</span>
@@ -260,9 +258,10 @@
         <div class="section-title">Portfolio　作品集</div>
         <a class="link-btn" href="https://www.pixiv.net/users/3321190" target="_blank">
           <div class="btn-icon-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-<path fill="#0288d1" d="M24,44C12.972,44,4,35.028,4,24S12.972,4,24,4s20,8.972,20,20S35.028,44,24,44z"></path><path fill="#fff" d="M25.301,11.01c-9.527,0-15.59,6.929-15.59,6.929l1.732,3.132h0.866V19.67	c0,0,1.548-2.027,2.598-2.725V35.26h-0.866v1.732h5.197V35.26h-0.866v-4.276c1.621,0.848,3.961,1.678,6.929,1.678	c8.661,0,12.992-5.123,12.992-10.393C38.292,17.146,34.828,11.01,25.301,11.01z M25.301,30.064c-3.471,0-5.776-0.771-6.929-1.285	V14.722c1.878-0.898,4.186-1.557,6.929-1.557c5.75,0,8.661,4.755,8.661,9.104C33.962,25.733,30.94,30.064,25.301,30.064z"></path>
-</svg>
+            <!-- Pixiv：SVG path 使用 --ic 顏色，統一 26px -->
+            <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+              <path class="pixiv-icon" d="M4.459 1.035C2.155 2.117.5 4.487.5 7.253c0 4.277 3.464 7.747 7.735 7.747 1.948 0 3.73-.72 5.09-1.903v1.403h2.35V7.253C15.675 3.807 12.884.5 9.178.5c-1.72 0-3.3.617-4.719 1.535zM8.235 12.5c-2.896 0-5.235-2.344-5.235-5.247 0-2.9 2.339-5.253 5.235-5.253 2.895 0 5.24 2.353 5.24 5.253 0 2.903-2.345 5.247-5.24 5.247z"/>
+            </svg>
           </div>
           <div class="btn-text"><span class="btn-title">Pixiv</span></div>
         </a>
